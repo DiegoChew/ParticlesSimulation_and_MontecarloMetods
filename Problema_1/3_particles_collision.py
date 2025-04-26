@@ -4,7 +4,8 @@ matplotlib.use("QtAgg")
 
 import matplotlib.pyplot as plt
 from matplotlib.animation import FuncAnimation
-            
+import matplotlib.animation as animation
+
 box = Box(Lx=20, Ly=20)
 
 
@@ -31,7 +32,13 @@ def animate(frame):
         circle = particle_artists[i]
         circle.set_center((p.x, p.y))
     return particle_artists
+# fps = 30  
+# duration = 1  
+# total_frames = fps * duration
 
 ani = FuncAnimation(fig, animate, frames=10000, interval=10, blit=False,cache_frame_data=False)
+
+# writer = animation.FFMpegWriter(fps=fps, bitrate=1800)
+# ani.save('simulacion_2_particulas.mp4', writer=writer)
 plt.show()
  

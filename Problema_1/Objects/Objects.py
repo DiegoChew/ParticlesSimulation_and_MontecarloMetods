@@ -38,8 +38,8 @@ class Particle():
       min_distance = self.r+other.r
       if distance < min_distance:
 
-        nx = dx / distance
-        ny = dy / distance
+        nx = dx / (distance +1e-50)
+        ny = dy / (distance +1e-50)
 
         overlap = min_distance - distance
         self.x += nx * (overlap / 2)
